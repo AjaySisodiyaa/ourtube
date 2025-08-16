@@ -5,7 +5,7 @@ const GlobalStateContext = createContext();
 
 // 2. Create provider component
 export const GlobalStateProvider = ({ children }) => {
-  const [open, setOpen] = useState("");
+  const [open, setOpen] = useState("nav-active");
   console.log(open);
   return (
     <GlobalStateContext.Provider value={{ open, setOpen }}>

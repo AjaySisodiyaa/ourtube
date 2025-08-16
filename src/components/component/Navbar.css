@@ -1,5 +1,10 @@
+/* .navbar {
+  position: relative;
+} */
+
 .navbar-container {
   display: flex;
+  position: fixed;
   width: 100%;
   height: 60px;
   justify-content: space-between;
@@ -8,6 +13,7 @@
   background-color: #333;
   font-size: 18px;
   font-weight: bold;
+  top: 0px;
 }
 .logo {
   display: flex;
@@ -37,7 +43,7 @@
 }
 @media (max-width: 550px) {
   .navbar-container {
-    height: 30px;
+    height: 60px;
   }
   .link {
     padding: 5px 10px;

@@ -6,7 +6,7 @@ import { useGlobalState } from "../../context.js";
 const Dashboard = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { open, setOpen } = useGlobalState("");
+  const { open, setOpen } = useGlobalState();
   useEffect(() => {
     if (location.pathname === "/dashboard") {
       navigate("/dashboard/home");
@@ -75,6 +75,10 @@ const Dashboard = () => {
         <div
           style={{ backgroundColor: "black", margin: "0px", padding: "0px" }}
         ></div>
+        <h2 onClick={() => setOpen("nav-active")} className="back">
+          <span>=</span>&gt;
+        </h2>
+
         <Outlet />
       </div>
     </div>

@@ -12,12 +12,14 @@ import Navbar from "./components/component/Navbar";
 import Profile from "./components/Profile";
 import EditVideo from "./components/Dashboard/EditVideo";
 import { GlobalStateProvider } from "./context";
+import Footer from "./components/component/Footer/Footer";
 
 function App() {
   return (
     <div>
       <GlobalStateProvider>
         <Navbar />
+
         <Routes>
           <Route path="/" element={<MainHome />} />
           <Route path="/signup" element={<Signup />} />
@@ -34,7 +36,9 @@ function App() {
             />
           </Route>
         </Routes>
+
         <ToastContainer />
+        <Footer />
       </GlobalStateProvider>
     </div>
   );

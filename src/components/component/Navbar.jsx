@@ -1,13 +1,8 @@
-import React from "react";
 import logo from "../../assets/logo.png";
-import hamburger from "../../assets/hamburger.svg";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { useGlobalState } from "../../context";
-import Logo from "./Logo";
-const Navbar = () => {
-  const { open, setOpen } = useGlobalState("");
 
+const Navbar = () => {
   return (
     <div className="navbar-container">
       <Link to={"/"} className="logo">
@@ -20,24 +15,8 @@ const Navbar = () => {
             Login
           </Link>
         ) : (
-          <Link
-            className="profile"
-            to={`/dashboard/home/${localStorage.getItem("userId")}`}
-          >
-            <Logo
-              // userId={localStorage.getItem("userId")}
-              logoUrl={localStorage.getItem("logoUrl")}
-            />
-          </Link>
+          <></>
         )}
-        <img
-          src={hamburger}
-          onClick={() =>
-            open === "nav-active" ? setOpen("") : setOpen("nav-active")
-          }
-          className="fa-hamburger"
-          alt="|||"
-        />
       </div>
     </div>
   );
