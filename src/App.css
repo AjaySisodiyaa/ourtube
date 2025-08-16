@@ -519,6 +519,7 @@ summary::marker {
     border-radius: 10px;
     font-size: 11px;
     object-fit: cover;
+    width: 95%;
   }
   .play-description-info {
     display: flex;
@@ -559,7 +560,8 @@ summary::marker {
   .comment-container {
     gap: 10px;
     margin: 10px;
-    height: 200px;
+    height: fit-content;
+    max-height: 200px;
     overflow-y: scroll;
   }
   .comment {
