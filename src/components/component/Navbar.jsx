@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../assets/logo.png";
+import hamburger from "../../assets/hamburger.svg";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { useGlobalState } from "../../context";
@@ -29,12 +30,14 @@ const Navbar = () => {
             />
           </Link>
         )}
-        <i
+        <img
+          src={hamburger}
           onClick={() =>
             open === "nav-active" ? setOpen("") : setOpen("nav-active")
           }
-          className="fas fa-hamburger"
-        ></i>
+          className="fa-hamburger"
+          alt="|||"
+        />
       </div>
     </div>
   );
