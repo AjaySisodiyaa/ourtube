@@ -67,10 +67,12 @@ const Home = () => {
             />
             <div className="video-title">
               <h4>{video?.title?.slice(0, 50)}</h4>
-              <p>{video?.user_id?.channelName}</p>
-              <div className="video-stats">
-                <p>{video?.views} views</p>
-                <p>{timeAgo(video?.createdAt)}</p>
+              <div className="video-duration">
+                <p>{video?.user_id?.channelName}</p>
+                <div className="video-stats">
+                  <p>{video?.views} views</p>
+                  <p>{timeAgo(video?.createdAt)}</p>
+                </div>
               </div>
             </div>
           </div>

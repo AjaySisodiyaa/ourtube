@@ -4,3 +4,11 @@
   border-radius: 50% !important;
   object-fit: cover !important;
 }
+@media (max-width: 550px) {
+  .profile-logo {
+    width: 35px !important;
+    height: 35px !important;
+    min-width: 35px !important;
+    min-height: 35px !important;
+  }
+}

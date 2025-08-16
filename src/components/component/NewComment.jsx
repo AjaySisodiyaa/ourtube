@@ -29,22 +29,22 @@ const NewComment = ({ videoId, getComments }) => {
     }
   };
   return (
-    <div className="new-comment-container">
-      <Logo
-        userId={localStorage.getItem("userId")}
-        logoUrl={localStorage.getItem("logoUrl")}
-      />
-      {/* <img src={localStorage.getItem("logoUrl")} alt="" /> */}
-      <form onSubmit={handleSubmit}>
+    <form className="new-comment-form" onSubmit={handleSubmit}>
+      <div className="new-comment-container">
+        <Logo
+          userId={localStorage.getItem("userId")}
+          logoUrl={localStorage.getItem("logoUrl")}
+        />
+
         <input
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           type="text"
           placeholder="Comment"
         />
-        <button type="submit">Comment</button>
-      </form>
-    </div>
+      </div>
+      <button type="submit">Comment</button>
+    </form>
   );
 };
 
