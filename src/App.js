@@ -10,6 +10,7 @@ import Video from "./components/Video";
 import MainHome from "./components/Home";
 import Navbar from "./components/component/Navbar";
 import Profile from "./components/Profile";
+import EditVideo from "./components/Dashboard/EditVideo";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="my-video" element={<MyVideos />} />
           <Route path="upload" element={<Upload />} />
+          <Route path="my-video/edit-video/:videoId" element={<EditVideo />} />
         </Route>
       </Routes>
       <ToastContainer />

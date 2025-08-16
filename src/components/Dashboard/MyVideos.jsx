@@ -131,7 +131,9 @@ const MyVideos = () => {
               </div>
             </div>
             <div className="video-actions">
-              <button>Edit</button>
+              <button onClick={() => navigate(`edit-video/${video?._id}`)}>
+                Edit
+              </button>
               <button onClick={() => handleDelete(video?._id)}>Delete</button>
             </div>
           </div>
