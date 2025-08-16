@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useGlobalState } from "../../context.js";
 
 const Dashboard = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [open, setOpen] = useState("");
+  const { open, setOpen } = useGlobalState("");
   useEffect(() => {
     if (location.pathname === "/dashboard") {
       navigate("/dashboard/home");
@@ -23,7 +24,6 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <div className={`side-nav ${open}`}>
-        <div onClick={() => setOpen("")}>X</div>
         <div className="profile-container">
           <img src={localStorage.getItem("logoUrl")} alt="logo" />
           <h2>{localStorage.getItem("channelName")}</h2>
@@ -32,11 +32,12 @@ const Dashboard = () => {
           <Link
             onClick={() => setOpen("")}
             className={
-              location.pathname === "/dashboard/home"
+              location.pathname ===
+              `/dashboard/home/${localStorage.getItem("userId")}`
                 ? "active-menu-link"
                 : "menu-link"
             }
-            to={"home"}
+            to={`home/${localStorage.getItem("userId")}`}
           >
             <i className="fa-solid fa-house"></i>
             Home
@@ -73,10 +74,7 @@ const Dashboard = () => {
       <div className="content-container">
         <div
           style={{ backgroundColor: "black", margin: "0px", padding: "0px" }}
-          onClick={() => setOpen("nav-active")}
-        >
-          |||
-        </div>
+        ></div>
         <Outlet />
       </div>
     </div>

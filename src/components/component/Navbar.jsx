@@ -2,7 +2,11 @@ import React from "react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { useGlobalState } from "../../context";
+import Logo from "./Logo";
 const Navbar = () => {
+  const { open, setOpen } = useGlobalState("");
+
   return (
     <div className="navbar-container">
       <Link to={"/"} className="logo">
@@ -15,10 +19,22 @@ const Navbar = () => {
             Login
           </Link>
         ) : (
-          <Link className="link" to={"/dashboard/my-video"}>
-            Dashboard
+          <Link
+            className="profile"
+            to={`/dashboard/home/${localStorage.getItem("userId")}`}
+          >
+            <Logo
+              // userId={localStorage.getItem("userId")}
+              logoUrl={localStorage.getItem("logoUrl")}
+            />
           </Link>
         )}
+        <i
+          onClick={() =>
+            open === "nav-active" ? setOpen("") : setOpen("nav-active")
+          }
+          className="fas fa-hamburger"
+        ></i>
       </div>
     </div>
   );
