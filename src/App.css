@@ -339,13 +339,6 @@ tr:hover {
   gap: 10px;
   margin: 0px 10px;
 }
-.play-suggestion-channel-video {
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-  position: relative;
-  top: -40px;
-}
 
 .play-suggestion-video {
   width: 100%;

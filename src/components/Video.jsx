@@ -284,7 +284,6 @@ const Video = () => {
         <div className="play-player">
           <video
             ref={videoRef}
-            autoPlay
             muted
             loop
             playsInline
@@ -360,8 +359,7 @@ const Video = () => {
         </div>
       </div>
       <div className="play-suggestion">
-        <div className="play-suggestion-channel-video">
-          {/* {channelVideo?.map((video) => (
+        {/* {channelVideo?.map((video) => (
             <div
               key={video._id}
               onClick={() => navigate(`/video/${video._id}`)}
@@ -378,24 +376,24 @@ const Video = () => {
               </div>
             </div>
           ))} */}
-          {allVideos?.map((video) => (
-            <div
-              key={video._id}
-              onClick={() => navigate(`/video/${video._id}`)}
-              className="play-suggestion-video"
-            >
-              <img src={video?.thumbnailUrl} alt="video" />
-              <div className="play-suggestion-video-info">
-                <h3>{video.title}</h3>
-                <p>{video.user_id.channelName}</p>
-                <div className="play-suggestion-video-views">
-                  <p>{video?.views} views</p>
-                  <p>{timeAgo(video?.createdAt)} </p>
-                </div>
+        {allVideos?.map((video) => (
+          <div
+            key={video._id}
+            onClick={() => navigate(`/video/${video._id}`)}
+            className="play-suggestion-video"
+          >
+            <img src={video?.thumbnailUrl} alt="video" />
+            <div className="play-suggestion-video-info">
+              <h3>{video.title}</h3>
+              <p>{video.user_id.channelName}</p>
+              <div className="play-suggestion-video-views">
+                <p>{video?.views} views</p>
+                <p>{timeAgo(video?.createdAt)} </p>
               </div>
             </div>
-          ))}
-          {/* {categoryVideo?.map((video) => (
+          </div>
+        ))}
+        {/* {categoryVideo?.map((video) => (
             <div
               key={video._id}
               onClick={() => navigate(`/video/${video._id}`)}
@@ -412,7 +410,6 @@ const Video = () => {
               </div>
             </div>
           ))} */}
-        </div>
       </div>
     </div>
   );
