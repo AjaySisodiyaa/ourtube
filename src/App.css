@@ -20,17 +20,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .c-name {
   color: white;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .logo-image {
-  width: 7%;
+  width: 80px;
 }
 .wrapper-header {
   /* background: green; */
@@ -157,7 +157,7 @@
 .upload-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+
   padding: 20px;
   width: 80%;
   gap: 10px;
@@ -211,7 +211,9 @@ select {
   width: 100%;
   border-collapse: collapse;
 }
-
+.card-video {
+  display: none;
+}
 th,
 td {
   text-align: left;
@@ -575,5 +577,109 @@ summary::marker {
     font-size: 12px;
     font-weight: 500;
     color: gray;
+  }
+
+  /* upload video ------------ */
+
+  .upload-container {
+    justify-content: normal;
+  }
+  .upload-form {
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+
+    background-color: #333;
+    font-size: 14px;
+    color: white;
+    margin-top: 10px;
+    box-shadow: none;
+    border-radius: 0px;
+  }
+
+  .upload-form input,
+  textarea,
+  select {
+    height: 35px;
+    font-size: 12px;
+    border: none;
+  }
+
+  .upload-form button {
+    height: 35px;
+    background-color: rgb(224, 32, 32);
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .thumbnail {
+  }
+
+  /* dashboard ----------- */
+  .dashboard-container {
+    flex-direction: column;
+    color: white;
+    position: relative;
+  }
+  .side-nav {
+    width: 100%;
+    height: 100vh;
+    padding: 1px;
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.81);
+  }
+  .nav-active {
+    display: block;
+  }
+
+  .content-container {
+    width: 100%;
+  }
+  .videos-table {
+    display: none;
+  }
+  .card-video {
+    display: block;
+  }
+  .my-videos-container {
+    gap: 10px;
+  }
+  .video-actions {
+    display: flex;
+    justify-content: space-between;
+    margin: 2px 10px;
+  }
+  .video-actions button {
+    background-color: rgb(55, 185, 255);
+    color: black;
+    border: none;
+    padding: 5px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  /* Login form */
+  .main-wrapper {
+    justify-content: normal;
+    padding: 20px 5px;
+  }
+  .form-wrapper {
+    width: 95%;
+    padding: 70px 20px;
+    margin-top: 20px;
+  }
+  .form-wrapper input {
+    height: 40px;
+  }
+  .form-wrapper button {
+    height: 40px;
+    width: 100%;
   }
 }

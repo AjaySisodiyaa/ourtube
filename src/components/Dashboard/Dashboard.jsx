@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [open, setOpen] = useState("");
   useEffect(() => {
     if (location.pathname === "/dashboard") {
       navigate("/dashboard/home");
@@ -21,13 +22,15 @@ const Dashboard = () => {
   };
   return (
     <div className="dashboard-container">
-      <div className="side-nav">
+      <div className={`side-nav ${open}`}>
+        <div onClick={() => setOpen("")}>X</div>
         <div className="profile-container">
           <img src={localStorage.getItem("logoUrl")} alt="logo" />
           <h2>{localStorage.getItem("channelName")}</h2>
         </div>
         <div className="menu-container">
           <Link
+            onClick={() => setOpen("")}
             className={
               location.pathname === "/dashboard/home"
                 ? "active-menu-link"
@@ -39,6 +42,7 @@ const Dashboard = () => {
             Home
           </Link>
           <Link
+            onClick={() => setOpen("")}
             className={
               location.pathname === "/dashboard/my-video"
                 ? "active-menu-link"
@@ -49,6 +53,7 @@ const Dashboard = () => {
             <i className="fa-solid fa-video"></i> My Videos
           </Link>
           <Link
+            onClick={() => setOpen("")}
             className={
               location.pathname === "/dashboard/upload"
                 ? "active-menu-link"
@@ -66,6 +71,12 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="content-container">
+        <div
+          style={{ backgroundColor: "black", margin: "0px", padding: "0px" }}
+          onClick={() => setOpen("nav-active")}
+        >
+          |||
+        </div>
         <Outlet />
       </div>
     </div>
