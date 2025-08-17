@@ -86,4 +86,20 @@
     display: flex;
     border-radius: 50%;
   }
+  .navbar-container span {
+    font-size: 20px;
+  }
+  .nav-search {
+    width: 300px;
+
+    font-size: 16px;
+    display: none;
+  }
+  .search-container {
+    display: flex;
+    gap: 0;
+  }
+  .search-container button {
+    display: none;
+  }
 }
