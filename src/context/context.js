@@ -1,23 +1,21 @@
 import axios from "axios";
 import React, { createContext, useState, useContext, useCallback } from "react";
 
-// 1. Create context
 const GlobalStateContext = createContext();
 
-// 2. Create provider component
 export const GlobalStateProvider = ({ children }) => {
   const [open, setOpen] = useState("nav-active");
-  const [videos, setVideos] = useState([]); // store fetched videos
-  const [page, setPage] = useState(1); // track current page
-  const [hasMore, setHasMore] = useState(true); // stop fetching when no more
+  const [videos, setVideos] = useState([]);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
+  // Get all videos
   const fetchVideos = useCallback(async () => {
     if (!hasMore) return;
 
     try {
       const res = await axios.get(
         `https://ourtubeapi-1-37sk.onrender.com/video/video?page=${page}&limit=4`
-        // `http://localhost:4000/video/video?page=${page}&limit=8`
       );
       const data = await res.data;
 
@@ -38,8 +36,8 @@ export const GlobalStateProvider = ({ children }) => {
         open,
         setOpen,
         videos,
-        fetchVideos,
         hasMore,
+        fetchVideos,
       }}
     >
       {children}

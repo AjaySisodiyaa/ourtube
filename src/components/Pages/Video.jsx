@@ -6,17 +6,37 @@ import Comment from "../component/Comment";
 import NewComment from "../component/NewComment";
 import Logo from "../component/Logo/Logo";
 import "../../App.css";
+import { useGlobalState } from "../../context/context";
 
 const Video = () => {
   const { videoId } = useParams();
   const [video, setVideo] = useState({});
   const [isOpen, setIsOpen] = useState(false);
-  const [allVideos, setAllVideos] = useState([]);
+
   const [user, setUser] = useState({});
-  //   const [channelVideo, setChannelVideo] = useState([]);
-  //   const [categoryVideo, setCategoryVideo] = useState([]);
 
   const navigate = useNavigate();
+  const { videos, hasMore, fetchVideos } = useGlobalState();
+  const loader = useRef(null); // ✅ keep loader local
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          fetchVideos();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    if (loader.current) observer.observe(loader.current);
+
+    return () => {
+      if (loader.current && observer) {
+        observer.unobserve(loader.current);
+      }
+    };
+  }, [hasMore, fetchVideos]);
 
   const getVideo = useCallback(async () => {
     try {
@@ -30,62 +50,7 @@ const Video = () => {
     }
   }, [videoId]);
 
-  const getAllVideo = useCallback(async () => {
-    try {
-      const response = await axios.get(
-        `https://ourtubeapi-1-37sk.onrender.com/video/videos`
-      );
-      setAllVideos(
-        response.data.videos
-          .filter((video) => video._id !== videoId)
-          .slice(0, 25)
-      );
-    } catch (error) {
-      console.log(error);
-      toast.error(
-        error.response?.data?.error || "Error fetching channel videos"
-      );
-    }
-  }, [videoId]);
-  //   const getChannelVideo = useCallback(
-  //     async (channelId) => {
-  //       try {
-  //         const response = await axios.get(
-  //           `https://ourtubeapi-1-37sk.onrender.com/video/channel/${channelId}`
-  //         );
-  //         setChannelVideo(
-  //           response.data.videos.filter((video) => video._id !== videoId)
-  //         );
-  //       } catch (error) {
-  //         console.log(error);
-  //         toast.error(
-  //           error.response?.data?.error || "Error fetching channel videos"
-  //         );
-  //       }
-  //     },
-  //     [videoId]
-  //   );
-  //   const getVideoByCategory = useCallback(
-  //     async (category) => {
-  //       try {
-  //         const response = await axios.get(
-  //           `https://ourtubeapi-1-37sk.onrender.com/video/category/${category}`
-  //         );
-  //         setCategoryVideo(
-  //           response.data.videos.filter((video) => video._id !== videoId)
-  //         );
-  //       } catch (error) {
-  //         console.log(error);
-  //         toast.error(
-  //           error.response?.data?.error || "Error fetching channel videos"
-  //         );
-  //       }
-  //     },
-  //     [videoId]
-  //   );
-
-  //comments
-
+  //get comments
   const [comments, setComments] = useState([]);
 
   const getComments = useCallback(async () => {
@@ -119,21 +84,8 @@ const Video = () => {
   }, [getComments]);
 
   useEffect(() => {
-    getAllVideo();
     getVideo();
-  }, [getVideo, getAllVideo]);
-
-  //   useEffect(() => {
-  //     if (video?.user_id?._id) {
-  //       getChannelVideo(video.user_id._id);
-  //     }
-  //   }, [video?.user_id?._id, getChannelVideo]);
-
-  //   useEffect(() => {
-  //     if (video?.category) {
-  //       getVideoByCategory(video?.category);
-  //     }
-  //   }, [video?.category, getVideoByCategory]);
+  }, [getVideo]);
 
   function timeAgo(dateString) {
     const now = new Date();
@@ -158,8 +110,6 @@ const Video = () => {
     }
     return "just now";
   }
-
-  //get user by id
 
   // subscribe
   const handleSubscribe = async () => {
@@ -299,7 +249,6 @@ const Video = () => {
               logoUrl={video?.user_id?.logoUrl}
               userId={video?.user_id?._id}
             />
-            {/* <img src={video?.user_id?.logoUrl} alt="logo" /> */}
             <div className="subscribe-info">
               <h3>{video?.user_id?.channelName}</h3>
               <p>{video?.user_id?.subscribers} subscribers</p>
@@ -360,24 +309,7 @@ const Video = () => {
         </div>
       </div>
       <div className="play-suggestion">
-        {/* {channelVideo?.map((video) => (
-            <div
-              key={video._id}
-              onClick={() => navigate(`/video/${video._id}`)}
-              className="play-suggestion-video"
-            >
-              <img src={video?.thumbnailUrl} alt="video" />
-              <div className="play-suggestion-video-info">
-                <h3>{video.title}</h3>
-                <p>{video.user_id.channelName}</p>
-                <div className="play-suggestion-video-views">
-                  <p>{video?.views} views</p>
-                  <p>{timeAgo(video?.createdAt)} </p>
-                </div>
-              </div>
-            </div>
-          ))} */}
-        {allVideos?.map((video) => (
+        {videos?.map((video) => (
           <div
             key={video._id}
             onClick={() => navigate(`/video/${video._id}`)}
@@ -394,23 +326,7 @@ const Video = () => {
             </div>
           </div>
         ))}
-        {/* {categoryVideo?.map((video) => (
-            <div
-              key={video._id}
-              onClick={() => navigate(`/video/${video._id}`)}
-              className="play-suggestion-video"
-            >
-              <img src={video?.thumbnailUrl} alt="video" />
-              <div className="play-suggestion-video-info">
-                <h3>{video.title}</h3>
-                <p>{video.user_id.channelName}</p>
-                <div className="play-suggestion-video-views">
-                  <p>{video?.views} views</p>
-                  <p>{timeAgo(video?.createdAt)} </p>
-                </div>
-              </div>
-            </div>
-          ))} */}
+        {hasMore && <div ref={loader} style={{ height: "50px" }} />}
       </div>
     </div>
   );

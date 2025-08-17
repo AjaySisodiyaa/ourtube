@@ -27,7 +27,7 @@ const Comment = ({ comments }) => {
   return (
     <div className="comment-container">
       {comments.map((comment) => (
-        <div key={comment?.id} className="comment">
+        <div key={comment?._id} className="comment">
           <Logo
             logoUrl={comment?.user_id?.logoUrl}
             userId={comment?.user_id?._id}

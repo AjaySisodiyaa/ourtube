@@ -1,12 +1,11 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Logo from "../Logo/Logo";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { useGlobalState } from "../../../context/context";
 
 const VideoItem = ({ timeAgo }) => {
-  const loader = useRef(null);
-  const { fetchVideos, videos, hasMore } = useGlobalState();
+  const { videos, hasMore, fetchVideos } = useGlobalState();
+  const loader = useRef(null); // ✅ keep loader local
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -18,14 +17,14 @@ const VideoItem = ({ timeAgo }) => {
       { threshold: 1.0 }
     );
 
-    const currentLoader = loader.current; // ✅ copy ref value
-
-    if (currentLoader) observer.observe(currentLoader);
+    if (loader.current) observer.observe(loader.current);
 
     return () => {
-      if (currentLoader) observer.unobserve(currentLoader); // ✅ cleanup with same value
+      if (loader.current && observer) {
+        observer.unobserve(loader.current);
+      }
     };
-  }, [loader, hasMore, fetchVideos]);
+  }, [hasMore, fetchVideos]);
 
   return (
     <>
@@ -41,7 +40,7 @@ const VideoItem = ({ timeAgo }) => {
           <div className="video-info">
             <Logo
               logoUrl={video?.user_id?.logoUrl}
-              userId={video?.user_id._id}
+              userId={video?.user_id?._id}
             />
             <div className="video-title">
               <h4>{video?.title?.slice(0, 50)}</h4>
@@ -56,11 +55,7 @@ const VideoItem = ({ timeAgo }) => {
           </div>
         </div>
       ))}
-      {hasMore ? (
-        <div ref={loader} style={{ height: "50px" }} />
-      ) : (
-        <p>No more videos</p>
-      )}
+      {hasMore && <div ref={loader} style={{ height: "50px" }} />}
     </>
   );
 };
