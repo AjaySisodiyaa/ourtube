@@ -55,6 +55,7 @@ const Signup = () => {
 
       <form className="form-wrapper" onSubmit={submitHandler}>
         <input
+          disabled={loading}
           required
           value={channelName}
           onChange={(e) => setChannelName(e.target.value)}
@@ -62,6 +63,7 @@ const Signup = () => {
           placeholder="Channel Nmae"
         />
         <input
+          disabled={loading}
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -69,6 +71,7 @@ const Signup = () => {
           placeholder="Email"
         />
         <input
+          disabled={loading}
           required
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
@@ -76,6 +79,7 @@ const Signup = () => {
           placeholder="Phone"
         />
         <input
+          disabled={loading}
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -86,11 +90,11 @@ const Signup = () => {
         {imageUrl !== "" && (
           <img className="preview-image" src={imageUrl} alt="logo-img" />
         )}
-        <button type="submit">
+        <button disabled={loading} type="submit">
           {loading && <i className="fa-solid fa-circle-notch fa-spin"></i>}
-          Submit
+          Signup
         </button>
-        <Link className="link" to="/login">
+        <Link disabled={loading} className="link" to="/login">
           Login here
         </Link>
       </form>

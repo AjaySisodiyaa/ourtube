@@ -18,7 +18,7 @@ export const GlobalStateProvider = ({ children }) => {
         `https://ourtubeapi-1-37sk.onrender.com/video/video?page=${page}&limit=8`
       );
       const data = await res.data;
-
+      console.log("fetchVideos");
       if (data.videos.length === 0) {
         setHasMore(false); // no more videos
       } else {

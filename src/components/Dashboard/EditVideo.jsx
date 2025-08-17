@@ -98,10 +98,22 @@ const EditVideo = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
           <textarea
+            disabled={loading}
+            rows="30"
+            cols="50"
             onChange={(e) => setDescription(e.target.value)}
             name="description"
             placeholder="Description"
-            value={title}
+            value={description}
+            style={{
+              width: "100%",
+              minHeight: "100px",
+              resize: "vertical", // user can resize only vertically
+              padding: "10px",
+              fontSize: "14px",
+              borderRadius: "6px",
+              border: "1px solid #ccc",
+            }}
           ></textarea>
           <select
             value={category}
@@ -115,11 +127,24 @@ const EditVideo = () => {
             <option value="science">Science</option>
             <option value="motivation">Motivation</option>
           </select>
-          value={title}
+
           <textarea
+            disabled={loading}
+            rows="4"
+            cols="50"
+            value={tags}
             onChange={(e) => setTags(e.target.value)}
             name="tags"
             placeholder="Tags"
+            style={{
+              width: "100%",
+              minHeight: "100px",
+              resize: "vertical", // user can resize only vertically
+              padding: "10px",
+              fontSize: "14px",
+              borderRadius: "6px",
+              border: "1px solid #ccc",
+            }}
           ></textarea>
           <div className="upload-file-container">
             <label htmlFor="upload-video-label" className="upload-file">
@@ -127,6 +152,7 @@ const EditVideo = () => {
               <img src={uploadVideo} alt="" />
             </label>
             <input
+              disabled={loading}
               id="upload-video-label"
               style={{ display: "none" }}
               onChange={videoHandler}
@@ -137,15 +163,16 @@ const EditVideo = () => {
               <img src={uploadImage} alt="" />
             </label>
             <input
+              disabled={loading}
               id="thumbnail"
               style={{ display: "none" }}
               onChange={thumbnailHandler}
               type="file"
             />
           </div>
-          <button type="submit">
+          <button disabled={loading} type="submit">
             {loading && <i className="fa-solid fa-circle-notch fa-spin"></i>}
-            Upload
+            Update
           </button>
         </form>
         <div className="upload-video-content">

@@ -51,6 +51,7 @@ const Login = () => {
 
       <form className="form-wrapper" onSubmit={submitHandler}>
         <input
+          disabled={loading}
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -59,6 +60,7 @@ const Login = () => {
         />
 
         <input
+          disabled={loading}
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -66,11 +68,11 @@ const Login = () => {
           placeholder="Password"
         />
 
-        <button type="submit">
+        <button disabled={loading} type="submit">
           {loading && <i className="fa-solid fa-circle-notch fa-spin"></i>}
           Submit
         </button>
-        <Link className="link" to="/signup">
+        <Link disabled={loading} className="link" to="/signup">
           Create a new account
         </Link>
       </form>
