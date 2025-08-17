@@ -230,7 +230,7 @@ select {
   height: fit-content;
 }
 
-.thumbnail {
+.upload-thumbnail {
   max-width: 35vw;
   max-height: 35vh;
   min-width: 35vw;
@@ -646,7 +646,7 @@ summary::marker {
     height: 300px;
     min-width: 90vw;
   }
-  .thumbnail {
+  .upload-thumbnail {
     width: 90vw;
     height: 300px;
     min-width: 90vw;
