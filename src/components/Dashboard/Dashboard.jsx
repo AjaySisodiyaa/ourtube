@@ -40,7 +40,7 @@ const Dashboard = () => {
             to={`home/${localStorage.getItem("userId")}`}
           >
             <i className="fa-solid fa-house"></i>
-            Home
+            Profile
           </Link>
           <Link
             onClick={() => setOpen("")}
