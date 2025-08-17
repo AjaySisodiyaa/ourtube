@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../component/Logo";
+import Logo from "../component/Logo/Logo";
 import { toast } from "react-toastify";
 
 const MyVideos = () => {

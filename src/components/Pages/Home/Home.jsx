@@ -1,5 +1,5 @@
 import "./Home.css";
-import VideoItem from "./component/VideoItem/VideoItem";
+import VideoItem from "../../component/VideoItem/VideoItem";
 
 const Home = () => {
   function timeAgo(dateString) {

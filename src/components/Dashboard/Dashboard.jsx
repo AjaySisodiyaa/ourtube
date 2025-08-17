@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useGlobalState } from "../../context.js";
+import { useGlobalState } from "../../context/context";
 
 const Dashboard = () => {
   const location = useLocation();

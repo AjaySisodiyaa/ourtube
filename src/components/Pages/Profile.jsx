@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Logo from "./component/Logo";
+import Logo from "../component/Logo/Logo";
 
 const Profile = () => {
   const { profileId } = useParams();

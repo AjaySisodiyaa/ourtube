@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import Logo from "./Logo";
+import Logo from "./Logo/Logo";
 
 const NewComment = ({ videoId, getComments }) => {
   const [comment, setComment] = useState("");

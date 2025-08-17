@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import "../App.css";
+import "../../App.css";
 import { toast } from "react-toastify";
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -43,7 +43,7 @@ const Login = () => {
       <div className="wrapper-header">
         <img
           className="logo-image"
-          src={require("../assets/logo.png")}
+          src={require("../../assets/logo.png")}
           alt="logo"
         />
         <h2 className="c-name">Our Tube</h2>

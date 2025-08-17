@@ -2,9 +2,10 @@ import axios from "axios";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import Comment from "./component/Comment";
-import NewComment from "./component/NewComment";
-import Logo from "./component/Logo";
+import Comment from "../component/Comment";
+import NewComment from "../component/NewComment";
+import Logo from "../component/Logo/Logo";
+import "../../App.css";
 
 const Video = () => {
   const { videoId } = useParams();

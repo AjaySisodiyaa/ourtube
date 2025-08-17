@@ -1,34 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import Logo from "../Logo";
+import Logo from "../Logo/Logo";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useGlobalState } from "../../../context/context";
 
 const VideoItem = ({ timeAgo }) => {
-  const [videos, setVideos] = useState([]); // store fetched videos
-  const [page, setPage] = useState(1); // track current page
-  const [hasMore, setHasMore] = useState(true); // stop fetching when no more
   const loader = useRef(null);
-
-  const fetchVideos = useCallback(async () => {
-    if (!hasMore) return;
-
-    try {
-      const res = await axios.get(
-        `https://ourtubeapi-1-37sk.onrender.com/video/video?page=${page}&limit=4`
-        // `http://localhost:4000/video/video?page=${page}&limit=8`
-      );
-      const data = await res.data;
-
-      if (data.videos.length === 0) {
-        setHasMore(false); // no more videos
-      } else {
-        setVideos((prev) => [...prev, ...data.videos]);
-        setPage((p) => p + 1);
-      }
-    } catch (err) {
-      console.error("Error fetching videos:", err);
-    }
-  }, [page, hasMore]);
+  const { fetchVideos, videos, hasMore } = useGlobalState();
 
   useEffect(() => {
     const observer = new IntersectionObserver(

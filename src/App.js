@@ -1,17 +1,17 @@
 import { Routes, Route } from "react-router-dom";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import Signup from "./components/Pages/Signup";
+import Login from "./components/Pages/Login";
 import { ToastContainer } from "react-toastify";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Home from "./components/Dashboard/Home";
 import MyVideos from "./components/Dashboard/MyVideos";
 import Upload from "./components/Dashboard/Upload";
-import Video from "./components/Video";
-import MainHome from "./components/Home";
-import Navbar from "./components/component/Navbar";
-import Profile from "./components/Profile";
+import Video from "./components/Pages/Video";
+import MainHome from "./components/Pages/Home/Home";
+import Navbar from "./components/component/Navbar/Navbar";
+import Profile from "./components/Pages/Profile";
 import EditVideo from "./components/Dashboard/EditVideo";
-import { GlobalStateProvider } from "./context";
+import { GlobalStateProvider } from "./context/context";
 import Footer from "./components/component/Footer/Footer";
 
 function App() {

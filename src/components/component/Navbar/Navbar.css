@@ -14,6 +14,7 @@
   font-size: 18px;
   font-weight: bold;
   top: 0px;
+  z-index: 10;
 }
 .logo {
   display: flex;

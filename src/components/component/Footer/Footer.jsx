@@ -1,8 +1,8 @@
 import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
-import Logo from "../Logo";
-import { useGlobalState } from "../../../context";
+import Logo from "../Logo/Logo";
+import { useGlobalState } from "../../../context/context";
 
 const Footer = () => {
   const { setOpen } = useGlobalState();
