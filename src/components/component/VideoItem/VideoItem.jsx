@@ -14,8 +14,8 @@ const VideoItem = ({ timeAgo }) => {
 
     try {
       const res = await axios.get(
-        // `https://ourtubeapi-1-37sk.onrender.com/video/video?page=${page}&limit=4`
-        `http://localhost:4000/video/video?page=${page}&limit=8`
+        `https://ourtubeapi-1-37sk.onrender.com/video/video?page=${page}&limit=4`
+        // `http://localhost:4000/video/video?page=${page}&limit=8`
       );
       const data = await res.data;
 
