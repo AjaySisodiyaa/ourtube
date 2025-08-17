@@ -4,26 +4,27 @@ import { toast } from "react-toastify";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import Logo from "./component/Logo";
+import VideoItem from "./component/VideoItem/VideoItem";
 
 const Home = () => {
-  const [allVideos, setAllVideos] = useState([]);
-  const getAllVideo = useCallback(async () => {
-    try {
-      const response = await axios.get(
-        `https://ourtubeapi-1-37sk.onrender.com/video/videos`
-      );
-      setAllVideos(response.data.videos);
-    } catch (error) {
-      console.log(error);
-      toast.error(
-        error.response?.data?.error || "Error fetching channel videos"
-      );
-    }
-  }, []);
+  // const [allVideos, setAllVideos] = useState([]);
+  // const getAllVideo = useCallback(async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       `https://ourtubeapi-1-37sk.onrender.com/video/videos`
+  //     );
+  //     setAllVideos(response.data.videos);
+  //   } catch (error) {
+  //     console.log(error);
+  //     toast.error(
+  //       error.response?.data?.error || "Error fetching channel videos"
+  //     );
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    getAllVideo();
-  }, [getAllVideo]);
+  // useEffect(() => {
+  //   getAllVideo();
+  // }, [getAllVideo]);
 
   function timeAgo(dateString) {
     const now = new Date();
@@ -51,7 +52,8 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {allVideos.map((video) => (
+      <VideoItem timeAgo={timeAgo} />
+      {/* {allVideos.map((video) => (
         <div key={video?._id} className="video-container">
           <Link to={`/video/${video?._id}`}>
             <img
@@ -77,7 +79,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };

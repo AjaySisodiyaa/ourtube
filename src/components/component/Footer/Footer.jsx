@@ -5,7 +5,7 @@ import Logo from "../Logo";
 import { useGlobalState } from "../../../context";
 
 const Footer = () => {
-  const { open, setOpen } = useGlobalState();
+  const { setOpen } = useGlobalState();
   return (
     <div className="footer-container">
       <div className="footer-content">

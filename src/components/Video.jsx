@@ -228,7 +228,7 @@ const Video = () => {
 
     const timer = setTimeout(() => {
       viewed();
-    }, 30000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, [video?._id, viewed]);
