@@ -12,7 +12,6 @@
   width: 40%;
   height: auto;
   padding: 60px 30px;
-
   background-color: rgb(34, 32, 32);
   border-radius: 30px;
   box-shadow: 5px 5px 10px rgb(95, 86, 86);
@@ -153,26 +152,29 @@
 /* upload video ------------ */
 .upload-container {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  height: 100vh;
+  /* min-height: 70vh; */
+  /* height: fit-content; */
+  height: 100%;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  gap: 10px;
 }
 
 .upload-form {
   display: flex;
   flex-direction: column;
-
+  height: fit-content;
   padding: 20px;
   width: 80%;
   gap: 10px;
-  background-color: rgb(55, 185, 255);
-  color: black;
+  background-color: #333;
+  color: white;
   font-size: 20px;
   font-weight: 600;
   margin-top: 20px;
-  box-shadow: 5px 5px 15px rgb(221, 103, 103);
+  min-height: 50vh;
   border-radius: 20px;
 }
 
@@ -186,6 +188,27 @@ select {
   border-radius: 5px;
 }
 
+.upload-file-container {
+  display: flex;
+  justify-content: space-around;
+}
+.upload-file {
+  padding: 10px;
+  background-color: #333;
+
+  color: white;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  font-size: 14px;
+}
+.upload-file img {
+  width: 80px;
+}
+
 .upload-form button {
   height: 50px;
   background-color: rgb(224, 32, 32);
@@ -196,10 +219,25 @@ select {
   border-radius: 10px;
   font-size: 16px;
   font-weight: 600;
+  margin: auto;
+}
+.upload-video {
+  max-width: 35vw;
+  max-height: 35vh;
+  min-width: 35vw;
+  /* max-height: 35vh; */
+  width: fit-content;
+  height: fit-content;
 }
 
 .thumbnail {
-  width: 100px;
+  max-width: 35vw;
+  max-height: 35vh;
+  min-width: 35vw;
+  /* max-height: 35vh; */
+  width: fit-content;
+  height: fit-content;
+  object-fit: contain;
 }
 
 /* my videos -------------------- */
@@ -472,7 +510,7 @@ summary::marker {
   background-color: rgb(55, 185, 255);
 }
 
-@media (max-width: 550px) {
+@media (max-width: 800px) {
   .play-wrapper {
     flex-direction: column;
     padding: 0;
@@ -582,18 +620,36 @@ summary::marker {
 
   .upload-container {
     justify-content: normal;
+    display: flex;
+    flex-direction: column;
   }
   .upload-form {
     gap: 10px;
     padding: 10px;
     width: 100%;
-
-    background-color: #333;
+    background-color: #000;
     font-size: 14px;
     color: white;
     margin-top: 10px;
     box-shadow: none;
     border-radius: 0px;
+  }
+  .upload-video-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 70px;
+  }
+
+  .upload-video {
+    width: 90vw;
+    height: 300px;
+    min-width: 90vw;
+  }
+  .thumbnail {
+    width: 90vw;
+    height: 300px;
+    min-width: 90vw;
   }
 
   .upload-form input,
@@ -602,6 +658,9 @@ summary::marker {
     height: 35px;
     font-size: 12px;
     border: none;
+  }
+  .upload-file {
+    background-color: black;
   }
 
   .upload-form button {
@@ -616,14 +675,12 @@ summary::marker {
     font-weight: 600;
   }
 
-  .thumbnail {
-  }
-
   /* dashboard ----------- */
   .dashboard-container {
     flex-direction: column;
     color: white;
     position: relative;
+    background-color: black;
   }
   .back {
     display: flex;
@@ -674,11 +731,15 @@ summary::marker {
   .main-wrapper {
     justify-content: normal;
     padding: 20px 5px;
+    width: 100%;
+    background-color: black;
   }
   .form-wrapper {
-    width: 95%;
-    padding: 70px 20px;
+    width: 100%;
+    padding: 20px 0px;
     margin-top: 20px;
+    background-color: black;
+    box-shadow: none;
   }
   .form-wrapper input {
     height: 40px;

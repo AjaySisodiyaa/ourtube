@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Home = () => {
@@ -70,14 +70,13 @@ const Home = () => {
 
   return (
     <div className="main-wrapper">
-      <div className="wrapper-header">
+      {/* <div className="wrapper-header">
         <img
           className="logo-image"
           src={require("../../assets/logo.png")}
           alt="logo"
         />
-        <h2 className="c-name">Our Tube</h2>
-      </div>
+      </div> */}
 
       <form className="form-wrapper" onSubmit={submitHandler}>
         <input
