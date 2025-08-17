@@ -125,7 +125,7 @@ const Upload = () => {
           )}
 
           {imageUrl !== "" && (
-            <img className="thumbnail" src={imageUrl} alt="thumbnail" />
+            <img className="upload-thumbnail" src={imageUrl} alt="thumbnail" />
           )}
         </div>
       </div>

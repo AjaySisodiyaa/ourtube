@@ -11,11 +11,37 @@
   padding: 20px;
   align-items: center;
   background-color: #000;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   top: 0px;
   z-index: 10;
 }
+.navbar-container span {
+  font-size: 28px;
+}
+.nav-search {
+  width: 500px;
+  height: 40px;
+  background-color: #000;
+  outline: none;
+  color: white;
+  border: 1px solid gray;
+  border-radius: 20px 0 0 20px;
+  padding: 0 20px;
+  font-size: large;
+}
+.search-container {
+  display: flex;
+  gap: 0;
+}
+.search-container button {
+  background-color: #000;
+  border: 1px solid gray;
+  color: white;
+  padding: 0 20px;
+  border-radius: 0px 20px 20px 0px;
+}
+
 .logo {
   display: flex;
   justify-content: center;
@@ -45,6 +71,7 @@
 @media (max-width: 550px) {
   .navbar-container {
     height: 60px;
+    font-size: 20px;
   }
   .link {
     padding: 5px 10px;

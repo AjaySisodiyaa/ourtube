@@ -15,7 +15,7 @@ export const GlobalStateProvider = ({ children }) => {
 
     try {
       const res = await axios.get(
-        `https://ourtubeapi-1-37sk.onrender.com/video/video?page=${page}&limit=4`
+        `https://ourtubeapi-1-37sk.onrender.com/video/video?page=${page}&limit=8`
       );
       const data = await res.data;
 

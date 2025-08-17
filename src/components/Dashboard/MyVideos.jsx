@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 const MyVideos = () => {
   const [videos, setVideos] = useState([]);
   const navigate = useNavigate();
+  // const [deleteConf, setDeleteConf] = useState(false);
 
   const getVideos = async () => {
     try {
@@ -25,6 +26,10 @@ const MyVideos = () => {
   };
   const handleDelete = async (videoId) => {
     try {
+      alert("are you sure you want to delete this video");
+      // if (!deleteConf) {
+      // return;
+      // }
       await axios.delete(
         `https://ourtubeapi-1-37sk.onrender.com/video/${videoId}`,
         {
@@ -98,7 +103,9 @@ const MyVideos = () => {
                 <button onClick={() => handleDelete(video?._id)}>Delete</button>
               </td>
               <td>
-                <button>Edit</button>
+                <button onClick={() => navigate(`edit-video/${video?._id}`)}>
+                  Edit
+                </button>
               </td>
             </tr>
           ))}

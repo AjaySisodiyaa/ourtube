@@ -9,6 +9,10 @@ const Navbar = () => {
         <img src={logo} alt="logo" />
         <span>OurTube</span>
       </Link>
+      <form className="search-container">
+        <input type="text" className="nav-search" />
+        <button>Search</button>
+      </form>
       <div className="links">
         {!localStorage?.getItem("token") ? (
           <Link className="link" to={"/login"}>
