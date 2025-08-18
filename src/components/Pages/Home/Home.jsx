@@ -29,8 +29,12 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Playlist />
-      <VideoItem timeAgo={timeAgo} />
+      <div className="playlist-container">
+        <Playlist />
+      </div>
+      <div className="home-video-container">
+        <VideoItem timeAgo={timeAgo} />
+      </div>
     </div>
   );
 };

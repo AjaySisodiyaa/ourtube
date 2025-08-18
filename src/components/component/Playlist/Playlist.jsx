@@ -64,7 +64,6 @@ const Playlisy = () => {
         </div>
       ))}
       {hasMorePlaylist && <div ref={loader} style={{ height: "50px" }} />}
-      end playlisy
     </>
   );
 };
