@@ -35,6 +35,12 @@ const Home = () => {
       <div className="home-video-container">
         <VideoItem timeAgo={timeAgo} />
       </div>
+      <div className="blank">You are at the end of page </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div></div>
     </div>
   );
 };
