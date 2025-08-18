@@ -1,5 +1,6 @@
 import "./Home.css";
 import VideoItem from "../../component/VideoItem/VideoItem";
+import Playlist from "../../component/Playlist/Playlist";
 
 const Home = () => {
   function timeAgo(dateString) {
@@ -28,6 +29,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      <Playlist />
       <VideoItem timeAgo={timeAgo} />
     </div>
   );

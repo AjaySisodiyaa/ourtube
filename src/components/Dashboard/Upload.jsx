@@ -48,8 +48,11 @@ const Upload = () => {
       .then((res) => {
         setLoading(false);
         console.log(res.data);
-        toast("Video is uploaded");
+        navigate("/dashboard/my-video");
       })
+      // .then(() => {
+      //   toast("Video is uploaded");
+      // })
       .catch((err) => {
         setLoading(false);
         const message = err.response?.data?.error || "Upload failed";
