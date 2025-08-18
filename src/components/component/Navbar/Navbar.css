@@ -48,11 +48,7 @@
   height: 40px;
 }
 .search-container h1 {
-  color: white;
-  font-size: 30px;
-  margin: auto;
-  margin-left: 10px;
-  font-weight: 400;
+  display: none;
 }
 
 .icons {
@@ -97,6 +93,7 @@
     font-size: 20px;
     padding: 1px 5px;
   }
+
   .link {
     padding: 5px 10px;
     font-weight: 500;
@@ -125,6 +122,14 @@
   }
   .search-wrapper {
     width: 100%;
+  }
+  .search-container h1 {
+    color: white;
+    font-size: 30px;
+    margin: auto;
+    margin-left: 10px;
+    font-weight: 400;
+    display: flex;
   }
   .hide {
     display: none;
