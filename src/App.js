@@ -15,6 +15,7 @@ import { GlobalStateProvider } from "./context/context";
 import Footer from "./components/component/Footer/Footer";
 import Playlist from "./components/Dashboard/PlayList/Playlist";
 import Sidebar from "./components/component/Sidebar/Sidebar";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Navbar />
         <div className="main-wrapper" style={{ display: "flex" }}>
           <Sidebar />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<MainHome />} />
             <Route path="/signup" element={<Signup />} />
