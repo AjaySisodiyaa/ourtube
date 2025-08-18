@@ -14,7 +14,7 @@ const Navbar = () => {
         <span>OurTube</span>
       </Link>
       <div className="search-wrapper">
-        <form className="search-container">
+        <form className={`${hide} search-container`}>
           <input type="text" className={`nav-search ${hide}`} />
           <button type="submit" className={`${hide}`}>
             Search
