@@ -7,10 +7,8 @@ const Logo = ({ logoUrl, userId }) => {
     <div>
       <img
         className="profile-logo"
-        src={window.localStorage.getItem("logoUrl")}
-        onClick={() =>
-          navigate(`/dashboard/home/${window.localStorage.getItem("userId")}`)
-        }
+        src={logoUrl}
+        onClick={() => navigate(`/profile/${userId}`)}
         alt=""
       />
     </div>
