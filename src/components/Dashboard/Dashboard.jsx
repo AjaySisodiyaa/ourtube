@@ -23,12 +23,20 @@ const Dashboard = () => {
   };
   return (
     <div className="dashboard-container">
+      <div className="content-container">
+        <h2 onClick={() => setOpen("nav-active")} className="back">
+          <span>=</span>&gt;
+        </h2>
+
+        <Outlet />
+      </div>
       <div className={`side-nav ${open}`}>
         <div className="profile-container">
           <img src={localStorage.getItem("logoUrl")} alt="logo" />
           <h2>{localStorage.getItem("channelName")}</h2>
         </div>
         <div className="menu-container">
+          {/* Profile link */}
           <Link
             onClick={() => setOpen("")}
             className={
@@ -42,6 +50,9 @@ const Dashboard = () => {
             <i className="fa-solid fa-house"></i>
             Profile
           </Link>
+
+          {/* Profile My Videos */}
+
           <Link
             onClick={() => setOpen("")}
             className={
@@ -53,6 +64,21 @@ const Dashboard = () => {
           >
             <i className="fa-solid fa-video"></i> My Videos
           </Link>
+
+          <Link
+            onClick={() => setOpen("")}
+            className={
+              location.pathname === "/dashboard/playlist"
+                ? "active-menu-link"
+                : "menu-link"
+            }
+            to={"playlist"}
+          >
+            <i className="fa-solid fa-video"></i> playlist
+          </Link>
+
+          {/* Upload video */}
+
           <Link
             onClick={() => setOpen("")}
             className={
@@ -65,21 +91,14 @@ const Dashboard = () => {
             <i className="fa-solid fa-upload"></i>
             Upload video
           </Link>
+
+          {/* logout */}
+
           <div onClick={handleLogout} className="menu-link">
             <i className="fa-solid fa-right-from-bracket"></i>
             Logout
           </div>
         </div>
-      </div>
-      <div className="content-container">
-        <div
-          style={{ backgroundColor: "black", margin: "0px", padding: "0px" }}
-        ></div>
-        <h2 onClick={() => setOpen("nav-active")} className="back">
-          <span>=</span>&gt;
-        </h2>
-
-        <Outlet />
       </div>
     </div>
   );

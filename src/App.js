@@ -13,29 +13,34 @@ import Profile from "./components/Pages/Profile";
 import EditVideo from "./components/Dashboard/EditVideo";
 import { GlobalStateProvider } from "./context/context";
 import Footer from "./components/component/Footer/Footer";
+import Playlist from "./components/Dashboard/PlayList/Playlist";
+import Sidebar from "./components/component/Sidebar/Sidebar";
 
 function App() {
   return (
     <div>
       <GlobalStateProvider>
         <Navbar />
-
-        <Routes>
-          <Route path="/" element={<MainHome />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/video/:videoId" element={<Video />} />
-          <Route path="/profile/:profileId" element={<Profile />} />
-          <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="home/:profileId" element={<Home />} />
-            <Route path="my-video" element={<MyVideos />} />
-            <Route path="upload" element={<Upload />} />
-            <Route
-              path="my-video/edit-video/:videoId"
-              element={<EditVideo />}
-            />
-          </Route>
-        </Routes>
+        <div className="main-wrapper" style={{ display: "flex" }}>
+          <Sidebar />
+          <Routes>
+            <Route path="/" element={<MainHome />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/video/:videoId" element={<Video />} />
+            <Route path="/profile/:profileId" element={<Profile />} />
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route path="home/:profileId" element={<Home />} />
+              <Route path="my-video" element={<MyVideos />} />
+              <Route path="upload" element={<Upload />} />
+              <Route path="playlist" element={<Playlist />} />
+              <Route
+                path="my-video/edit-video/:videoId"
+                element={<EditVideo />}
+              />
+            </Route>
+          </Routes>
+        </div>
 
         <ToastContainer />
         <Footer />

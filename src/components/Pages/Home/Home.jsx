@@ -1,6 +1,6 @@
 import "./Home.css";
 import VideoItem from "../../component/VideoItem/VideoItem";
-import Playlist from "../../component/Playlist/Playlist";
+import Playlist from "../../component/Playlist/PlaylistItem";
 
 const Home = () => {
   function timeAgo(dateString) {

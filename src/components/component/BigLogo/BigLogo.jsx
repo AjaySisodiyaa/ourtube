@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import "./Logo.css";
+import "./BigLogo.css";
 
-const Logo = ({ logoUrl, userId }) => {
+const BigLogo = ({ logoUrl, userId }) => {
   const navigate = useNavigate();
   return (
     <div>
       <img
-        className="profile-logo"
+        className="big-logo"
         src={window.localStorage.getItem("logoUrl")}
         onClick={() =>
           navigate(`/dashboard/home/${window.localStorage.getItem("userId")}`)
@@ -17,4 +17,4 @@ const Logo = ({ logoUrl, userId }) => {
   );
 };
 
-export default Logo;
+export default BigLogo;

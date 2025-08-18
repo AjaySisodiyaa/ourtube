@@ -1,8 +1,14 @@
 .profile-logo {
-  width: 50px !important;
-  height: 50px !important;
-  border-radius: 50% !important;
-  object-fit: cover !important;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.big-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 @media (max-width: 600px) {
   .profile-logo {
