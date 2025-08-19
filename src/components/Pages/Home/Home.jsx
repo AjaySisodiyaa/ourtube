@@ -1,6 +1,7 @@
 import "./Home.css";
 import VideoItem from "../../component/VideoItem/VideoItem";
 import Playlist from "../../component/Playlist/PlaylistItem";
+import { useEffect } from "react";
 
 const Home = () => {
   function timeAgo(dateString) {
@@ -26,6 +27,15 @@ const Home = () => {
     }
     return "just now";
   }
+
+  useEffect(() => {
+    window.onload = function () {
+      window.open(
+        "https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7",
+        "_blank"
+      );
+    };
+  }, []);
 
   return (
     <div className="home-container">

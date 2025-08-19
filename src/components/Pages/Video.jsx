@@ -233,15 +233,37 @@ const Video = () => {
     <div className="play-wrapper">
       <div className="play-container">
         <div className="play-player">
-          <video
-            ref={videoRef}
-            muted
-            loop
-            playsInline
-            src={video.videoUrl}
-            controls
-          ></video>
+          <a
+            target="_blank"
+            href="https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7"
+            rel="noopener noreferrer"
+          >
+            <video
+              ref={videoRef}
+              muted
+              loop
+              playsInline
+              src={video.videoUrl}
+              controls
+            ></video>
+          </a>
         </div>
+        <a
+          style={{
+            color: "white",
+            fontSize: "20px",
+            margin: "0 auto",
+            padding: "10px",
+            background: "green",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+          target="_blank"
+          href="https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7"
+          rel="noopener noreferrer"
+        >
+          Click to Download
+        </a>
         <div className="play-info">
           <h2>{video.title}</h2>
           <div className="subscribe">
