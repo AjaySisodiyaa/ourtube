@@ -69,7 +69,7 @@ const Home = () => {
   };
 
   return (
-    <div className="main-wrapper">
+    <div className="dashboard-home-wrapper">
       {/* <div className="wrapper-header">
         <img
           className="logo-image"

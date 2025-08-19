@@ -2,11 +2,12 @@ import axios from "axios";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import Comment from "../component/Comment";
-import NewComment from "../component/NewComment";
-import Logo from "../component/Logo/Logo";
-import "../../App.css";
-import { useGlobalState } from "../../context/context";
+import Comment from "../../component/Comment";
+import NewComment from "../../component/NewComment";
+import Logo from "../../component/Logo/Logo";
+import { useGlobalState } from "../../../context/context";
+import AdsterraBanner from "../../component/Adsterra/AdsterraBanner";
+import "./Video.css";
 
 const Video = () => {
   const { videoId } = useParams();
@@ -235,6 +236,7 @@ const Video = () => {
         <div className="play-player">
           <a
             target="_blank"
+            data-cfasync="false"
             href="https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7"
             rel="noopener noreferrer"
           >
@@ -248,25 +250,11 @@ const Video = () => {
             ></video>
           </a>
         </div>
-        <a
-          style={{
-            color: "white",
-            fontSize: "20px",
-            margin: "0 auto",
-            padding: "10px",
-            background: "green",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-          target="_blank"
-          href="https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7"
-          rel="noopener noreferrer"
-        >
-          Click to Download
-        </a>
+
         <div className="play-info">
+          <AdsterraBanner />
           <h2>{video.title}</h2>
-          <div className="subscribe">
+          {/* <div className="subscribe">
             <Logo
               logoUrl={video?.user_id?.logoUrl}
               userId={video?.user_id?._id}
@@ -291,7 +279,7 @@ const Video = () => {
                 ? "Unsubscribe"
                 : "Subscribe"}
             </button>
-          </div>
+          </div> */}
         </div>
         <div className="play-description">
           <div className="play-description-info">

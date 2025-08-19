@@ -6,26 +6,42 @@ import searchIcon from "../../../assets/search.png";
 import bellIcon from "../../../assets/bell.png";
 
 const Navbar = () => {
-  const [hide, setHide] = useState("hide");
+  const [hide, setHide] = useState(true);
+  console.log(hide);
   return (
     <div className="navbar-container">
-      <Link to={"/"} className={hide === "hide" ? "logo" : `logo hide`}>
+      <Link to={"/"} className={hide ? "logo" : `logo hide`}>
         <img src={logo} alt="logo" />
         <span>OurTube</span>
       </Link>
-      <div className="search-wrapper">
-        <form className={`${hide} search-container`}>
-          <input type="text" className={`nav-search ${hide}`} />
-          <button type="submit" className={`${hide}`}>
+      <div
+        style={{ width: "100%", display: "flex", justifyContent: "center" }}
+        className={hide ? "hide" : `search-wrapper`}
+      >
+        <form className={` search-container`}>
+          <input
+            type="text"
+            className={hide ? "hide nav-search" : `nav-search `}
+          />
+          <button type="submit" className={hide ? "hide" : `search `}>
             Search
           </button>
-          <h1 className={`${hide}`} onClick={() => setHide("hide")}>
-            X
-          </h1>
         </form>
+        <h1
+          className={hide ? " rehide hide" : `rehide`}
+          style={{ color: "white", padding: "0 10px", cursor: "pointer" }}
+          onClick={() => setHide(true)}
+        >
+          X
+        </h1>
       </div>
-      <div className={hide === "hide" ? "icons" : ` hide`}>
-        <img onClick={() => setHide("")} src={searchIcon} alt="" />
+      <div className={hide ? "icons" : ` hide`}>
+        <img
+          className="rehide"
+          onClick={() => setHide(false)}
+          src={searchIcon}
+          alt=""
+        />
         <img src={bellIcon} alt="" />
         <div className="links">
           {!localStorage?.getItem("token") ? (
@@ -33,7 +49,9 @@ const Navbar = () => {
               Login
             </Link>
           ) : (
-            <></>
+            <Link className="link" to={"/login"}>
+              Logout
+            </Link>
           )}
         </div>
       </div>

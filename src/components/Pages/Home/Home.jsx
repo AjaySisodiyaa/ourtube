@@ -2,6 +2,7 @@ import "./Home.css";
 import VideoItem from "../../component/VideoItem/VideoItem";
 import Playlist from "../../component/Playlist/PlaylistItem";
 import { useEffect } from "react";
+import AdsterraBanner from "../../component/Adsterra/AdsterraBanner";
 
 const Home = () => {
   function timeAgo(dateString) {
@@ -28,29 +29,57 @@ const Home = () => {
     return "just now";
   }
 
+  function handleAdClick() {
+    window.open(
+      "https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  }
+
   useEffect(() => {
-    window.onload = function () {
-      window.open(
-        "https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7",
-        "_blank"
-      );
+    // Example: attach to user click
+    const element = document.getElementById("ad-opener");
+    if (element) {
+      element.addEventListener("click", handleAdClick);
+    }
+
+    return () => {
+      if (element) {
+        element.removeEventListener("click", handleAdClick);
+      }
     };
   }, []);
 
   return (
-    <div className="home-container">
+    <div
+      className="home-container"
+      style={{
+        overflowY: "scroll",
+        scrollbarWidth: "none",
+        paddingTop: "100px",
+      }}
+    >
+      <AdsterraBanner />
       <div className="playlist-container">
-        <Playlist />
+        <a
+          target="_blank"
+          data-cfasync="false"
+          href="https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7"
+          rel="noopener noreferrer"
+        >
+          <Playlist />
+        </a>
       </div>
-      <div className="home-video-container">
+      <AdsterraBanner />
+      {/* <div className="home-video-container">
         <VideoItem timeAgo={timeAgo} />
-      </div>
-      <div className="blank">You are at the end of page </div>
+      </div> */}
+
       <br />
       <br />
       <br />
       <br />
-      <div></div>
     </div>
   );
 };

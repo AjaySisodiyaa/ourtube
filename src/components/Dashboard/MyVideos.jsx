@@ -73,7 +73,7 @@ const MyVideos = () => {
   }
 
   return (
-    <div className="my-videos-container">
+    <div style={{ paddingTop: "100px" }} className="my-videos-container">
       <h1 className="videos-heading">My Videos</h1>
       <table className="videos-table">
         <thead>

@@ -78,10 +78,11 @@
 /* dashboard ----------- */
 .dashboard-container {
   width: 100%;
-  height: 100vh;
-  background-color: rgb(35, 33, 33);
+  height: 93vh;
+  background-color: black;
   display: flex;
   color: white;
+  overflow: hidden;
 }
 .back {
   position: absolute;
@@ -90,14 +91,16 @@
 }
 
 .side-nav {
-  width: 20%;
-  background-color: rgb(13, 12, 12);
+  width: 18%;
   padding: 10px;
+  background-color: rgb(13, 12, 12);
 }
 
 .content-container {
-  width: 80%;
-  padding: 10px;
+  width: 100%;
+  padding: 10px 10px 100px 10px;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .profile-container img {
@@ -280,161 +283,6 @@ tr:hover {
   background-color: rgb(55, 185, 255);
 }
 
-/* video player ------- */
-
-.play-wrapper {
-  background-color: black;
-  color: white;
-  display: flex;
-  padding: 30px 50px 80px 80px;
-  gap: 50px;
-  width: 100%;
-  padding-top: 900px;
-}
-.play-container {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.play-player {
-  width: 100%;
-}
-.play-player video {
-  width: 50vw;
-  height: 60vh;
-  border-radius: 20px;
-  border: 0.1px solid gray;
-}
-
-.play-player video:focus {
-  border: none;
-  outline: none;
-}
-
-.play-info {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.play-info h2 {
-  word-spacing: -2px;
-  font-size: 23px;
-  font-weight: 600;
-}
-
-.subscribe {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.subscribe-info {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  font-size: 18px;
-}
-.subscribe-info p {
-  font-size: 16px;
-  color: gray;
-}
-
-.subscribed {
-  padding: 2px 20px;
-  height: 30px;
-  background-color: white;
-  color: black;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.unsubscribe {
-  padding: 2px 20px;
-  height: 30px;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.play-description {
-  width: 100%;
-  background-color: #333;
-  border-radius: 20px;
-  padding: 10px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  overflow-y: hidden;
-}
-.play-description-info {
-  display: flex;
-  gap: 10px;
-}
-
-/* subgested video */
-
-.play-suggestion {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0px 10px;
-}
-
-.play-suggestion-video {
-  width: 100%;
-  height: 100px;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: 10px;
-}
-.play-suggestion-video img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-.play-suggestion-video-info {
-  padding: 10px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.play-suggestion-video-info h3 {
-  font-size: 14px;
-  font-weight: 600;
-  height: 30px;
-  overflow: hidden;
-  margin-bottom: 10px;
-}
-.play-suggestion-video-info p {
-  font-size: 14px;
-  color: gray;
-}
-.play-suggestion-video-views {
-  display: flex;
-  gap: 10px;
-}
-summary {
-  list-style: none;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary::marker {
-  display: none;
-}
-.active {
-  display: none;
-}
-
 /* Comments-------------------- */
 
 .comment-container {
@@ -513,111 +361,6 @@ summary::marker {
 }
 
 @media (max-width: 800px) {
-  .play-wrapper {
-    flex-direction: column;
-    padding: 0;
-    width: 100%;
-  }
-  .play-container {
-    width: 100%;
-  }
-  .play-player video {
-    width: 100%;
-    height: 32vh;
-    border-radius: 0px;
-    border: none;
-  }
-  .play-info {
-    gap: 5px;
-    margin: 10px;
-  }
-  .play-info h2 {
-    font-size: 15px;
-    font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .subscribe {
-    gap: 10px;
-  }
-  .subscribe-info {
-    flex-direction: row;
-    gap: 10px;
-    font-size: 12px;
-  }
-  .subscribe-info p {
-    font-size: 11px;
-  }
-  .subscribed,
-  .unsubscribe {
-    font-size: 12px;
-    padding: 2px 10px;
-    height: 25px;
-    margin-left: auto;
-  }
-
-  .play-description {
-    margin: 5px 10px;
-    border-radius: 10px;
-    font-size: 11px;
-    object-fit: cover;
-    width: 95%;
-  }
-  .play-description-info {
-    display: flex;
-    gap: 5px;
-    color: gray;
-  }
-  .play-description button {
-    background-color: #333;
-    color: white;
-    border: none;
-    outline: none;
-    margin-left: 10px;
-    font-size: 12px;
-  }
-
-  /* new comment ------------------- */
-  .new-comment-form {
-    width: 95%;
-    margin: 10px;
-    gap: 0px;
-  }
-
-  .new-comment-container {
-    gap: 10px;
-  }
-
-  .new-comment-container input {
-    font-size: 14px;
-  }
-  .new-comment-form button {
-    width: 100%;
-    font-size: 13px;
-    font-weight: bolder;
-  }
-
-  /* Comments-------------------- */
-
-  .comment-container {
-    gap: 10px;
-    margin: 10px;
-    height: fit-content;
-    max-height: 200px;
-    overflow-y: scroll;
-  }
-  .comment {
-    gap: 10px;
-  }
-  .comment-info {
-    gap: 5px;
-  }
-  .comment-username p,
-  h4 {
-    font-size: 12px;
-    font-weight: 500;
-    color: gray;
-  }
-
   /* upload video ------------ */
 
   .upload-container {

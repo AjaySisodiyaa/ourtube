@@ -39,7 +39,7 @@ const Login = () => {
   };
 
   return (
-    <div className="main-wrapper">
+    <div className="login-wrapper">
       <div className="wrapper-header">
         <img
           className="logo-image"

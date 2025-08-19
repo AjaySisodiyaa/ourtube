@@ -43,7 +43,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="main-wrapper">
+    <div className="signup-wrapper">
       <div className="wrapper-header">
         <img
           className="logo-image"

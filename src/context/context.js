@@ -11,6 +11,7 @@ export const GlobalStateProvider = ({ children }) => {
   const [playlistPage, setPlaylistPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [hasMorePlaylist, setHasMorePlaylist] = useState(true);
+  const [adClicked, setAdClicked] = useState(0);
 
   // Get all videos
   const fetchVideos = useCallback(async () => {
@@ -64,6 +65,8 @@ export const GlobalStateProvider = ({ children }) => {
         hasMorePlaylist,
         fetchVideos,
         fetchPlaylist,
+        adClicked,
+        setAdClicked,
       }}
     >
       {children}

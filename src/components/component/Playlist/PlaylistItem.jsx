@@ -5,7 +5,8 @@ import { useGlobalState } from "../../../context/context";
 import "./Playlist.css";
 
 const Playlisy = () => {
-  const { playlist, hasMorePlaylist, fetchPlaylist } = useGlobalState();
+  const { playlist, hasMorePlaylist, fetchPlaylist, adClicked, setAdClicked } =
+    useGlobalState();
   const loader = useRef(null); // ✅ keep loader local
 
   useEffect(() => {
@@ -31,12 +32,30 @@ const Playlisy = () => {
     <>
       {playlist.map((playlist) => (
         <div key={playlist?._id} className="playlist-container">
+          <div className="video-title">
+            <h1 style={{ color: "white" }}>{playlist?.title}</h1>
+          </div>
           <div className="playlist-slider">
             {playlist.video_id.map((video) => (
               <Link
                 key={video._id}
                 className="playlist-link"
-                to={`/video/${video?._id}`}
+                target={adClicked === 2 ? "_self" : "_blank"}
+                to={
+                  adClicked === 2
+                    ? `/video/${video?._id}`
+                    : `https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7`
+                }
+                onClick={() =>
+                  setAdClicked((prev) => {
+                    console.log(prev);
+                    if (prev === 2) {
+                      return 0;
+                    } else {
+                      return prev + 1;
+                    }
+                  })
+                }
               >
                 <img
                   className="playlist-thumbnail"
@@ -47,19 +66,10 @@ const Playlisy = () => {
             ))}
           </div>
           <div className="video-info">
-            <Logo
+            {/* <Logo
               logoUrl={playlist?.user_id?.logoUrl}
               userId={playlist?.user_id?._id}
-            />
-            <div className="video-title">
-              <h4>{playlist?.title?.slice(0, 50)}</h4>
-              <div className="video-duration">
-                <p>{playlist?.user_id?.channelName}</p>
-                <div className="video-stats">
-                  {/* <p>. {playlist?.views} views</p> */}
-                </div>
-              </div>
-            </div>
+            /> */}
           </div>
         </div>
       ))}
