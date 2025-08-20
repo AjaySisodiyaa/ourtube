@@ -1,5 +1,5 @@
 import "./Home.css";
-import VideoItem from "../../component/VideoItem/VideoItem";
+
 import Playlist from "../../component/Playlist/PlaylistItem";
 import { useEffect } from "react";
 import AdsterraBanner from "../../component/Adsterra/AdsterraBanner";
@@ -60,7 +60,6 @@ const Home = () => {
         paddingTop: "100px",
       }}
     >
-      <AdsterraBanner />
       <div className="playlist-container">
         <a
           target="_blank"
@@ -71,10 +70,6 @@ const Home = () => {
           <Playlist />
         </a>
       </div>
-      <AdsterraBanner />
-      {/* <div className="home-video-container">
-        <VideoItem timeAgo={timeAgo} />
-      </div> */}
 
       <br />
       <br />

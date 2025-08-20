@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Comment from "../../component/Comment";
 import NewComment from "../../component/NewComment";
@@ -112,46 +112,6 @@ const Video = () => {
     return "just now";
   }
 
-  // subscribe
-  const handleSubscribe = async () => {
-    try {
-      await axios.put(
-        `https://ourtubeapi-1-37sk.onrender.com/user/subscribe/${video?.user_id?._id}`,
-        { channel: video?.user_id?._id },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
-      toast("Subscribed");
-      getVideo();
-      getUserById(localStorage.getItem("userId"));
-    } catch (error) {
-      toast.error(error.response?.data?.error || "Error subscribing");
-      console.log(error.response?.data?.error);
-    }
-  };
-  // unsubscribe
-  const handleUnsubscribe = async () => {
-    try {
-      await axios.put(
-        `https://ourtubeapi-1-37sk.onrender.com/user/unsubscribe/${video?.user_id?._id}`,
-        { channel: video?.user_id?._id },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
-      toast("Subscribed");
-      getVideo();
-      getUserById(localStorage.getItem("userId"));
-    } catch (error) {
-      toast.error(error.response?.data?.error || "Error subscribing");
-      console.log(error.response?.data?.error);
-    }
-  };
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -234,7 +194,7 @@ const Video = () => {
     <div className="play-wrapper">
       <div className="play-container">
         <div className="play-player">
-          <a
+          <Link
             target="_blank"
             data-cfasync="false"
             href="https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7"
@@ -248,7 +208,7 @@ const Video = () => {
               src={video.videoUrl}
               controls
             ></video>
-          </a>
+          </Link>
         </div>
 
         <div className="play-info">

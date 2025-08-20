@@ -42,7 +42,7 @@ export const GlobalStateProvider = ({ children }) => {
         `https://ourtubeapi-1-37sk.onrender.com/playlist?page=${playlistPage}&limit=8`
       );
       const data = await res.data;
-      console.log(data.length);
+      // console.log(data);
       if (data.length === 0) {
         setHasMorePlaylist(false); // no more videos
       } else {

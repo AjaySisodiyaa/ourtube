@@ -3,6 +3,7 @@ import Logo from "../Logo/Logo";
 import { Link } from "react-router-dom";
 import { useGlobalState } from "../../../context/context";
 import "./Playlist.css";
+import AdsterraBanner from "../Adsterra/AdsterraBanner";
 
 const Playlisy = () => {
   const { playlist, hasMorePlaylist, fetchPlaylist, adClicked, setAdClicked } =
@@ -27,7 +28,7 @@ const Playlisy = () => {
       }
     };
   }, [hasMorePlaylist, fetchPlaylist]);
-
+  console.log(playlist);
   return (
     <>
       {playlist.map((playlist) => (
@@ -57,11 +58,13 @@ const Playlisy = () => {
                   })
                 }
               >
+                {/* {console.log(video)} */}
                 <img
                   className="playlist-thumbnail"
                   src={video?.thumbnailUrl}
                   alt={video?.title}
                 />
+                <p>{video?.title}</p>
               </Link>
             ))}
           </div>
@@ -71,6 +74,7 @@ const Playlisy = () => {
               userId={playlist?.user_id?._id}
             /> */}
           </div>
+          <AdsterraBanner />
         </div>
       ))}
       {hasMorePlaylist && <div ref={loader} style={{ height: "50px" }} />}

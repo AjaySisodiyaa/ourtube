@@ -2,7 +2,7 @@
   background-color: black;
   color: white;
   display: flex;
-  padding: 30px 50px 80px 80px;
+  padding: 80px 50px 80px 80px;
   gap: 50px;
 }
 .play-container {
@@ -15,6 +15,7 @@
 }
 .play-player video {
   width: 100%;
+  max-height: 70vh;
 
   border-radius: 20px;
   border: 0.1px solid gray;
@@ -153,7 +154,7 @@ summary::marker {
 @media (max-width: 800px) {
   .play-wrapper {
     flex-direction: column;
-    padding: 0;
+    padding: 80px 0 0 0;
     width: 100%;
   }
   .play-container {

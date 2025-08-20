@@ -31,16 +31,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/video/:videoId" element={<Video />} />
           <Route path="/profile/:profileId" element={<Profile />} />
-          <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="home/:profileId" element={<Home />} />
-            <Route path="my-video" element={<MyVideos />} />
-            <Route path="upload" element={<Upload />} />
-            <Route path="playlist" element={<Playlist />} />
-            <Route
-              path="my-video/edit-video/:videoId"
-              element={<EditVideo />}
-            />
-          </Route>
         </Routes>
         {/* </div> */}
 
