@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { createContext, useState, useContext, useCallback } from "react";
+import { toast } from "react-toastify";
 
 const GlobalStateContext = createContext();
 
@@ -12,6 +13,40 @@ export const GlobalStateProvider = ({ children }) => {
   const [hasMore, setHasMore] = useState(true);
   const [hasMorePlaylist, setHasMorePlaylist] = useState(true);
   const [adClicked, setAdClicked] = useState(0);
+  const [userClickedPlaylist, setUserClickedPlaylist] = useState(null);
+  const [userClickedVideo, setUserClickedVideo] = useState(null);
+  const [video, setVideo] = useState({});
+  const [playlistByVideoId, setPlaylistByVideoId] = useState([]);
+
+  //Get playlist by videoId ----------------
+  const getPlaylistByVideoId = useCallback(
+    async (videoId) => {
+      try {
+        const response = await axios.get(
+          `https://ourtubeapi-1-37sk.onrender.com/playlist/video/${videoId}`
+        );
+        setPlaylistByVideoId(response.data[0].video_id);
+        console.log("------->", response.data[0].video_id);
+      } catch (error) {
+        console.log(error);
+        toast.error(error.response?.data?.error || "Error fetching playlist");
+      }
+    },
+    [playlistByVideoId]
+  );
+
+  //Get Video
+  const getVideo = useCallback(async (videoId) => {
+    try {
+      const response = await axios.get(
+        `https://ourtubeapi-1-37sk.onrender.com/video/video/${videoId}`
+      );
+      setVideo(response.data.video);
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response?.data?.error || "Error fetching video");
+    }
+  }, []);
 
   // Get all videos
   const fetchVideos = useCallback(async () => {
@@ -67,6 +102,14 @@ export const GlobalStateProvider = ({ children }) => {
         fetchPlaylist,
         adClicked,
         setAdClicked,
+        userClickedPlaylist,
+        setUserClickedPlaylist,
+        userClickedVideo,
+        setUserClickedVideo,
+        video,
+        getVideo,
+        getPlaylistByVideoId,
+        playlistByVideoId,
       }}
     >
       {children}

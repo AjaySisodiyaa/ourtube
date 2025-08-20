@@ -1,30 +1,51 @@
 import axios from "axios";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Comment from "../../component/Comment";
 import NewComment from "../../component/NewComment";
-import Logo from "../../component/Logo/Logo";
+import { Link } from "react-router-dom";
 import { useGlobalState } from "../../../context/context";
 import AdsterraBanner from "../../component/Adsterra/AdsterraBanner";
 import "./Video.css";
 
 const Video = () => {
   const { videoId } = useParams();
-  const [video, setVideo] = useState({});
   const [isOpen, setIsOpen] = useState(false);
 
   const [user, setUser] = useState({});
+  // const { videoId} = useParams();
 
   const navigate = useNavigate();
-  const { videos, hasMore, fetchVideos } = useGlobalState();
-  const loader = useRef(null); // ✅ keep loader local
+  const {
+    videos,
+    hasMore,
+    fetchVideos,
+    playlist,
+    fetchPlaylist,
+    hasMorePlaylist,
+    userClickedPlaylist,
+    userClickedVideo,
+    getVideo,
+    video,
+    getPlaylistByVideoId,
+    playlistByVideoId,
+  } = useGlobalState();
+  const loader = useRef(null);
+  const platlistLoader = useRef(null);
+  console.log(userClickedPlaylist, userClickedVideo);
 
+  //get playlist by video id
+  // useEffect(() => {
+  // }, [videoId, getPlaylistByVideoId]);
+
+  // Get all videos
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && hasMore) {
           fetchVideos();
+          getPlaylistByVideoId(videoId);
         }
       },
       { threshold: 1.0 }
@@ -37,19 +58,27 @@ const Video = () => {
         observer.unobserve(loader.current);
       }
     };
-  }, [hasMore, fetchVideos]);
+  }, [hasMore, fetchVideos, getPlaylistByVideoId, videoId]);
 
-  const getVideo = useCallback(async () => {
-    try {
-      const response = await axios.get(
-        `https://ourtubeapi-1-37sk.onrender.com/video/video/${videoId}`
-      );
-      setVideo(response.data.video);
-    } catch (error) {
-      console.log(error);
-      toast.error(error.response?.data?.error || "Error fetching video");
-    }
-  }, [videoId]);
+  // Get all playlist
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasMorePlaylist) {
+          fetchPlaylist();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    if (platlistLoader.current) observer.observe(platlistLoader.current);
+
+    return () => {
+      if (platlistLoader.current && observer) {
+        observer.unobserve(platlistLoader.current);
+      }
+    };
+  }, [hasMorePlaylist, fetchPlaylist]);
 
   //get comments
   const [comments, setComments] = useState([]);
@@ -85,8 +114,8 @@ const Video = () => {
   }, [getComments]);
 
   useEffect(() => {
-    getVideo();
-  }, [getVideo]);
+    getVideo(videoId);
+  }, [getVideo, videoId]);
 
   function timeAgo(dateString) {
     const now = new Date();
@@ -202,28 +231,6 @@ const Video = () => {
             src={video.videoUrl}
             controls
           ></video>
-          <div
-            style={{
-              // backgroundColor: "black",
-              width: "55%",
-              zIndex: 1,
-              display: "flex",
-              position: "absolute",
-              top: 150,
-              left: "13%",
-              height: "50%",
-            }}
-            data-cfasync="false"
-            onClick={() => {
-              window.location.replace(
-                "https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7",
-                "_blank",
-                "noopener,noreferrer"
-              );
-            }}
-          >
-            klasjdf
-          </div>
         </div>
 
         <div className="play-info">
@@ -293,25 +300,77 @@ const Video = () => {
           />
         </div>
       </div>
-      <div className="play-suggestion">
-        {videos?.map((video) => (
-          <div
-            key={video._id}
-            onClick={() => navigate(`/video/${video._id}`)}
-            className="play-suggestion-video"
-          >
-            <img src={video?.thumbnailUrl} alt="video" />
-            <div className="play-suggestion-video-info">
-              <h3>{video.title}</h3>
-              <p>{video.user_id.channelName}</p>
-              <div className="play-suggestion-video-views">
-                <p>{video?.views} views</p>
-                <p>{timeAgo(video?.createdAt)} </p>
+      <div>
+        <div
+          style={{
+            padding: "10px 15px",
+            borderRadius: "10px",
+            marginBottom: "10px",
+            backgroundColor: "#333",
+          }}
+          className="play-suggestion"
+        >
+          {playlistByVideoId.map((video) => (
+            <div
+              style={{
+                padding: "10px 5px ",
+                borderRadius: "10px",
+                marginBottom: "10px",
+                backgroundColor: "#000",
+                color: "white",
+              }}
+              key={video?._id}
+            >
+              <Link
+                style={{ color: "white", textDecoration: "none" }}
+                to={`/video/${video?._id}`}
+              >
+                {video?.title}
+              </Link>
+            </div>
+          ))}
+          {hasMorePlaylist && (
+            <div ref={platlistLoader} style={{ height: "50px" }} />
+          )}
+          {/* {playlist?.map((playlist) => (
+            <div
+              key={playlist._id}
+              onClick={() => navigate(`/video/${video._id}`)}
+              className="play-suggestion-video"
+            >
+              <img src={playlist?.video_id[0]?.thumbnailUrl} alt="video" />
+              <div className="play-suggestion-video-info">
+                <h3>{video.title}</h3>
+                <p>{video.user_id.channelName}</p>
+                <div className="play-suggestion-video-views">
+                  <p>{video?.views} views</p>
+                  <p>{timeAgo(video?.createdAt)} </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-        {hasMore && <div ref={loader} style={{ height: "50px" }} />}
+            ))}
+            */}
+        </div>
+        <div className="play-suggestion">
+          {videos?.map((video) => (
+            <div
+              key={video._id}
+              onClick={() => navigate(`/video/${video._id}`)}
+              className="play-suggestion-video"
+            >
+              <img src={video?.thumbnailUrl} alt="video" />
+              <div className="play-suggestion-video-info">
+                <h3>{video.title}</h3>
+                <p>{video.user_id.channelName}</p>
+                <div className="play-suggestion-video-views">
+                  <p>{video?.views} views</p>
+                  <p>{timeAgo(video?.createdAt)} </p>
+                </div>
+              </div>
+            </div>
+          ))}
+          {hasMore && <div ref={loader} style={{ height: "50px" }} />}
+        </div>
       </div>
     </div>
   );

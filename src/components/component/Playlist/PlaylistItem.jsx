@@ -6,8 +6,15 @@ import "./Playlist.css";
 import AdsterraBanner from "../Adsterra/AdsterraBanner";
 
 const Playlisy = () => {
-  const { playlist, hasMorePlaylist, fetchPlaylist, adClicked, setAdClicked } =
-    useGlobalState();
+  const {
+    playlist,
+    hasMorePlaylist,
+    fetchPlaylist,
+    adClicked,
+    setAdClicked,
+    setUserClickedPlaylist,
+    setUserClickedVideo,
+  } = useGlobalState();
   const loader = useRef(null); // ✅ keep loader local
 
   useEffect(() => {
@@ -28,34 +35,40 @@ const Playlisy = () => {
       }
     };
   }, [hasMorePlaylist, fetchPlaylist]);
-  console.log(playlist);
+
+  const handleClick = (playlistId, videoId) => {
+    console.log(playlistId, videoId);
+    setUserClickedPlaylist(playlistId._id);
+    setUserClickedVideo(videoId._id);
+    setAdClicked((prev) => {
+      console.log(prev);
+      if (prev === 2) {
+        return 0;
+      } else {
+        return prev + 1;
+      }
+    });
+  };
   return (
     <>
       {playlist.map((playlist) => (
         <div key={playlist?._id} className="playlist-container">
           <div className="video-title">
-            <h1 style={{ color: "white" }}>{playlist?.title}</h1>
+            <h2 style={{ color: "white" }}>{playlist?.title}</h2>
           </div>
           <div className="playlist-slider">
             {playlist.video_id.map((video) => (
               <Link
                 key={video._id}
                 className="playlist-link"
+                onClick={() => {
+                  handleClick(playlist, video);
+                }}
                 target={adClicked === 2 ? "_self" : "_blank"}
                 to={
                   adClicked === 2
                     ? `/video/${video?._id}`
                     : `https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7`
-                }
-                onClick={() =>
-                  setAdClicked((prev) => {
-                    console.log(prev);
-                    if (prev === 2) {
-                      return 0;
-                    } else {
-                      return prev + 1;
-                    }
-                  })
                 }
               >
                 {/* {console.log(video)} */}

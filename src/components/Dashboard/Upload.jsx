@@ -122,7 +122,8 @@ const Upload = () => {
           </div>
 
           <button disabled={loading} type="submit">
-            Upload Video
+            {loading ? "Uploading..." : "Upload"}
+            {/* Upload Video */}
           </button>
           {loading && <i className="fa-solid fa-circle-notch fa-spin"></i>}
           {/* 👇 Progress Bar */}
