@@ -194,21 +194,36 @@ const Video = () => {
     <div className="play-wrapper">
       <div className="play-container">
         <div className="play-player">
-          <Link
-            target="_blank"
+          <video
+            ref={videoRef}
+            muted
+            loop
+            playsInline
+            src={video.videoUrl}
+            controls
+          ></video>
+          <div
+            style={{
+              // backgroundColor: "black",
+              width: "55%",
+              zIndex: 1,
+              display: "flex",
+              position: "absolute",
+              top: 150,
+              left: "13%",
+              height: "50%",
+            }}
             data-cfasync="false"
-            href="https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7"
-            rel="noopener noreferrer"
+            onClick={() => {
+              window.location.replace(
+                "https://www.profitableratecpm.com/uafdu270vn?key=681b59d059dca02467e18babca42f9f7",
+                "_blank",
+                "noopener,noreferrer"
+              );
+            }}
           >
-            <video
-              ref={videoRef}
-              muted
-              loop
-              playsInline
-              src={video.videoUrl}
-              controls
-            ></video>
-          </Link>
+            klasjdf
+          </div>
         </div>
 
         <div className="play-info">

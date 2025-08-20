@@ -16,6 +16,7 @@
 .play-player video {
   width: 100%;
   max-height: 70vh;
+  height: 70vh;
 
   border-radius: 20px;
   border: 0.1px solid gray;
