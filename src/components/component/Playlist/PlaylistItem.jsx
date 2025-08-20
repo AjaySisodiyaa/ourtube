@@ -64,7 +64,7 @@ const Playlisy = () => {
                   src={video?.thumbnailUrl}
                   alt={video?.title}
                 />
-                <p>{video?.title}</p>
+                <p style={{ color: "white" }}>{video?.title}</p>
               </Link>
             ))}
           </div>
