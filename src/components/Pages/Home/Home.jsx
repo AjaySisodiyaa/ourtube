@@ -60,6 +60,15 @@ const Home = () => {
         paddingTop: "100px",
       }}
     >
+      <iframe
+        title="video"
+        src="https://megaplay.buzz/stream/s-2/113728/sub"
+        allow="autoplay; fullscreen"
+        allowfullscreen="yes"
+        frameborder="no"
+        scrolling="no"
+        style={{ width: "70vw", height: "70vh", overflow: "hidden" }}
+      ></iframe>
       <div className="playlist-container">
         <a
           target="_blank"
