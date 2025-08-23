@@ -25,7 +25,7 @@ export const GlobalStateProvider = ({ children }) => {
         const response = await axios.get(
           `https://ourtubeapi-1-37sk.onrender.com/playlist/video/${videoId}`
         );
-        setPlaylistByVideoId(response.data[0].video_id);
+        setPlaylistByVideoId(response.data[0].video_idw);
         console.log("------->", response.data[0].video_id);
       } catch (error) {
         console.log(error);

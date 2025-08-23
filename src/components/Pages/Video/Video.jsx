@@ -234,7 +234,7 @@ const Video = () => {
         </div>
 
         <div className="play-info">
-          <AdsterraBanner />
+          {/* <AdsterraBanner /> */}
           <h2>{video.title}</h2>
           {/* <div className="subscribe">
             <Logo
