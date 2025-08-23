@@ -54,135 +54,130 @@ const Home = () => {
         paddingTop: "100px",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          overflowX: "auto",
-          padding: "10px",
-        }}
-      >
-        <div>
-          <p>Naruto Episode 6</p>
-          <iframe
-            id="ad-opener"
-            title="ad-opener"
-            src="https://short.icu/OUtOcpGTH"
-            scrolling="no"
-            frameBorder="1"
-            marginHeight="0px"
-            marginWidth="0px"
-            width="300px"
-            height="150px"
-            allowFullScreen=""
-          ></iframe>
-        </div>
-        <div>
-          <p>Naruto Episode 7</p>
-          <iframe
-            id="ad-opener"
-            title="ad-opener"
-            src="https://short.icu/8RD6hO4fs"
-            scrolling="no"
-            frameBorder="1"
-            marginHeight="0px"
-            marginWidth="0px"
-            width="300px"
-            height="150px"
-            allowFullScreen=""
-          ></iframe>
-        </div>
-        <div>
-          <p>Naruto Episode 8</p>
-          <iframe
-            id="ad-opener"
-            title="ad-opener"
-            src="https://animedekho.co/?trdekho=1&amp;trid=41510&amp;trtype=2"
-            scrolling="no"
-            frameBorder="1"
-            marginHeight="0px"
-            marginWidth="0px"
-            width="300px"
-            height="150px"
-            allowFullScreen=""
-          ></iframe>
-        </div>
-        <div>
-          <p>Naruto Episode 9</p>
-          <iframe
-            id="ad-opener"
-            title="ad-opener"
-            src="https://animedekho.co/?trdekho=1&amp;trid=41511&amp;trtype=2"
-            scrolling="no"
-            frameBorder="1"
-            marginHeight="0px"
-            marginWidth="0px"
-            width="300px"
-            height="150px"
-            allowFullScreen=""
-          ></iframe>
-        </div>
-        <div>
-          <p>Naruto Episode 10</p>
-          <iframe
-            id="ad-opener"
-            title="ad-opener"
-            src="https://animedekho.co/?trdekho=1&amp;trid=41512&amp;trtype=2"
-            scrolling="no"
-            frameBorder="1"
-            marginHeight="0px"
-            marginWidth="0px"
-            width="300px"
-            height="150px"
-            allowFullScreen=""
-          ></iframe>
-        </div>
-        <div>
-          <p>Naruto Episode 11</p>
-          <iframe
-            id="ad-opener"
-            title="ad-opener"
-            src="https://animedekho.co/?trdekho=1&amp;trid=41513&amp;trtype=2"
-            scrolling="no"
-            frameBorder="1"
-            marginHeight="0px"
-            marginWidth="0px"
-            width="300px"
-            height="150px"
-            allowFullScreen=""
-          ></iframe>
-        </div>
-        <div>
-          <p>Naruto Episode 12</p>
-          <iframe
-            id="ad-opener"
-            title="ad-opener"
-            src="https://animedekho.co/?trdekho=1&amp;trid=41514&amp;trtype=2"
-            scrolling="no"
-            frameBorder="1"
-            marginHeight="0px"
-            marginWidth="0px"
-            width="300px"
-            height="150px"
-            allowFullScreen=""
-          ></iframe>
-        </div>
-        <div>
-          <p>Naruto Episode 13</p>
-          <iframe
-            id="ad-opener"
-            title="ad-opener"
-            src="https://animedekho.co/?trdekho=1&amp;trid=41515&amp;trtype=2"
-            scrolling="no"
-            frameBorder="1"
-            marginHeight="0px"
-            marginWidth="0px"
-            width="300px"
-            height="150px"
-            allowFullScreen=""
-          ></iframe>
-        </div>
+      <div>
+        <p>Naruto Episode 6</p>
+        <iframe
+          src="https://short.icu/OUtOcpGTH"
+          title="Naruto Episode 1"
+          class="serversel"
+          width="560"
+          height="315"
+          frameborder="0"
+          id="okIqAuiNSs"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""
+        ></iframe>
+      </div>
+      <div>
+        <p>Naruto Episode 7</p>
+        <iframe
+          src="https://short.icu/8RD6hO4fs"
+          title="Naruto Episode 1"
+          class="serversel"
+          width="560"
+          height="315"
+          frameborder="0"
+          id="okIqAuiNSs"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""
+        ></iframe>
+      </div>
+      <div>
+        <p>Naruto Episode 8</p>
+        <iframe
+          src="https://animedekho.co/?trdekho=1&amp;trid=41510&amp;trtype=2"
+          title="Naruto Episode 1"
+          class="serversel"
+          width="560"
+          height="315"
+          frameborder="0"
+          id="okIqAuiNSs"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""
+        ></iframe>
+      </div>
+      <div>
+        <p>Naruto Episode 9</p>
+        <iframe
+          src="https://animedekho.co/?trdekho=1&amp;trid=41511&amp;trtype=2"
+          title="Naruto Episode 1"
+          class="serversel"
+          width="560"
+          height="315"
+          frameborder="0"
+          id="okIqAuiNSs"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""
+        ></iframe>
+      </div>
+      <div>
+        <p>Naruto Episode 10</p>
+        <iframe
+          src="https://animedekho.co/?trdekho=1&amp;trid=41512&amp;trtype=2"
+          title="Naruto Episode 1"
+          class="serversel"
+          width="560"
+          height="315"
+          frameborder="0"
+          id="okIqAuiNSs"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""
+        ></iframe>
+      </div>
+      <div>
+        <p>Naruto Episode 11</p>
+        <iframe
+          src="https://animedekho.co/?trdekho=1&amp;trid=41513&amp;trtype=2"
+          title="Naruto Episode 1"
+          class="serversel"
+          width="560"
+          height="315"
+          frameborder="0"
+          id="okIqAuiNSs"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""
+        ></iframe>
+      </div>
+      <div>
+        <p>Naruto Episode 12</p>
+        <iframe
+          src="https://animedekho.co/?trdekho=1&amp;trid=41514&amp;trtype=2"
+          title="Naruto Episode 1"
+          class="serversel"
+          width="560"
+          height="315"
+          frameborder="0"
+          id="okIqAuiNSs"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""
+        ></iframe>
+      </div>
+      <div>
+        <p>Naruto Episode 13</p>
+        <iframe
+          title="Naruto Episode 1"
+          class="serversel"
+          width="560"
+          height="315"
+          frameborder="0"
+          id="okIqAuiNSs"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""
+          src="https://animedekho.co/?trdekho=1&amp;trid=41515&amp;trtype=2"
+        ></iframe>
       </div>
 
+      <iframe
+        title="Naruto Episode 1"
+        class="serversel"
+        width="560"
+        height="315"
+        frameborder="0"
+        id="okIqAuiNSs"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen=""
+        src="https://animedekho.co/?trdekho=1&amp;trid=41503&amp;trtype=2"
+      ></iframe>
       {/* <input type="text" onChange={(e) => setMainVideoUrl(e.target.value)} /> */}
       <div className="playlist-container">
         <AdsterraBanner />
